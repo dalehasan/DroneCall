@@ -3,12 +3,13 @@ import "isomorphic-fetch";
 const findWeatherbyId = async id => {
   // Using the create-react-app's proxy for CORS issues
   const response = await fetch(
-    `https://react-assessment-api.herokuapp.com/api/weather/location/${id}/`
+     `https://react-assessment-api.herokuapp.com/api/weather/location/${id}/`
   );
   if (!response.ok) {
     return { error: { code: response.status } };
   }
   const json = await response.json();
+  //console.log(json);
   return { data: json };
 };
 

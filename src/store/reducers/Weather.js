@@ -1,4 +1,5 @@
-import * as actions from "../actions";
+//import * as actions from "../actions";
+import { FETCH_WEATHER, WEATHER_ID_RECEIVED, WEATHER_DATA_RECEIVED, FETCH_DRONE }  from "../actions";
 
 const initialState = {
   loading: false,
@@ -42,10 +43,24 @@ const weatherDataRecevied = (state, action) => {
   };
 };
 
+const startDroneLoading = (state, action) =>{
+  const {  } = action;
+  return { 
+    ...state, 
+    loading:false,
+    data : action.data  
+  };
+}
+
 const handlers = {
-  [actions.FETCH_WEATHER]: startLoading,
-  [actions.WEATHER_ID_RECEIVED]: weatherIDReceived,
-  [actions.WEATHER_DATA_RECEIVED]: weatherDataRecevied
+  // [actions.FETCH_WEATHER]: startLoading,
+  // [actions.WEATHER_ID_RECEIVED]: weatherIDReceived,
+  // [actions.WEATHER_DATA_RECEIVED]: weatherDataRecevied,
+  // [Actions.FETCH_DRONE]: startDroneLoading
+  [FETCH_WEATHER]: startLoading,
+  [WEATHER_ID_RECEIVED]: weatherIDReceived,
+  [WEATHER_DATA_RECEIVED]: weatherDataRecevied,
+  [FETCH_DRONE]: startDroneLoading
 };
 
 export default (state = initialState, action) => {
